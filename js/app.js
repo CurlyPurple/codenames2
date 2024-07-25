@@ -38,6 +38,8 @@ function init() {
     endRound = false
 }
 
+
+
 // function pullGameWords() {
     while (wordsForGame.length < 16) {
         let randomIndex = Math.floor(Math.random() * wordPool.length)
@@ -110,5 +112,28 @@ function spymasterRole() {
 function guesserRole() {
         cardEls.forEach((card, idx) => {
             cardEls[idx].textContent = wordsForGame[idx]
+            cardEls[idx].style.backgroundColor = "white";
+            cardEls[idx].style.color = "black";
      })
+        pickCardResult()
     }
+
+
+function pickCardResult (event) {
+    pickedCard = parseInt(event.target.id)
+    pickResult()
+}
+
+function pickResult() {
+    if (assassinWords.includes(wordsForGame[pickedCard])) {
+        cardEls[pickedCard].style.backgroundColor = "#2B2D42";
+        cardEls[pickedCard].textContent = "Game Over!"
+        cardEls[pickedCard].style.color = "white";
+    } else if (bystanderWords.includes(wordsForGame[pickedCard])) {
+        cardEls[pickedCard].style.backgroundColor = "#F24236";
+        cardEls[pickedCard].style.color = "white";
+    } else if (winningWords.includes(wordsForGame[pickedCard])) {
+        cardEls[pickedCard].style.backgroundColor = "#71B340";
+        cardEls[pickedCard].style.color = "white";
+    }
+}
