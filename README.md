@@ -1,9 +1,7 @@
 # CODENAMES FOR TWO
 ![Cards for Codenames in a 4 by 4 matrix ](../assets/images/cnphoto.png)
 
-## PLAY CODENAMES:
-
-**Click [here](https://curlypurple.github.io/codenames2/) to play**
+## [PLAY](https://curlypurple.github.io/codenames2/) CODENAMES:
 
 * You will need at least 2 players to play
 * You are working as a team to guess all the correct words

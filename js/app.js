@@ -10,6 +10,7 @@ let bystanderWords = []
 let assassinWords = []
 let userRole = "SPYMASTER"
 let currentGuesses = []
+let isRevealed = false
 
 /*------------------------ Cached Element References ------------------------*/
 const cardEls = document.querySelectorAll(".card")
@@ -123,11 +124,19 @@ function spymasterRole() {
     }
 
 function guesserRole() {
+    if (!isRevealed) {
         cardEls.forEach((card, idx) => {
             cardEls[idx].textContent = wordsForGame[idx]
             cardEls[idx].style.backgroundColor = "white";
             cardEls[idx].style.color = "black";
      })
+    } else if (isRevealed) {
+        cardEls.forEach((card, idx) => {
+            if (cardEls[idx] === Object.keys(currentGuesses[])) {
+                
+            }
+        })
+    }
     }
 
 
@@ -146,10 +155,19 @@ function pickResult(event) {
     } else if (bystanderWords.includes(wordsForGame[pickedCard])) {
         cardEls[pickedCard].style.backgroundColor = "#F24236";
         cardEls[pickedCard].style.color = "white";
+        const cardColorB = cardEls[pickedCard].style.backgroundColor
+        const cardTextColorB = cardEls[pickedCard].style.color
+        currentGuesses.push({ BWord: wordsForGame[pickedCard], BGColorB: cardColorB, CTextColorB: cardTextColorB})
+        cardEls[pickedCard].isRevealed = true
     } else if (winningWords.includes(wordsForGame[pickedCard])) {
         cardEls[pickedCard].style.backgroundColor = "#71B340";
         cardEls[pickedCard].style.color = "white";
+        const cardColorW = cardEls[pickedCard].style.backgroundColor
+        const cardTextColorW = cardEls[pickedCard].style.color
+        currentGuesses.push({WWord: wordsForGame[pickedCard], BGColorW: cardColorW, CTextColorW: cardTextColorW})
+        cardEls[pickedCard].isRevealed = true
         // currentGuesses.push(wordsForGame[pickedCard]) create new array that holds current value of picks and reference that when back in guesser role
 
     }
+    console.log(currentGuesses);
 }
