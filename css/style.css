@@ -1,0 +1,52 @@
+body {
+
+    background-color: #2274A5;
+   
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: #89023E;
+    color: white;
+    margin: auto;
+}
+
+/* .landing {
+    height: 26.4em;
+    width: 43em;
+    background-color: black;
+    position: absolute;
+}
+h2 {
+    color: white;
+    text-align: center;
+} */
+
+#togglebtn {
+    border-radius: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 100px;
+    width: 300px;
+    height: 30px;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 100px;
+    margin-left: 12%;
+}
+.card {
+    width: 20%;
+    height: 5.6em;
+    border: 3px solid black;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
