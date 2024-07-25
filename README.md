@@ -9,8 +9,8 @@
 1. One will be assigned the role of spymaster and the other will be the guesser
 2. The roles are at the top and you alternate by clicking the role title
 3. Spymaster can see all the correct words, incorrect words, and the assassin word which, if guessed, will end the game
-4. The spymaster comes up with a one word clue that links to a pre-determined number of words on the board and lets the guesser the clue and the number 
-5. The guesser guesses by clicking on the board and if correct can continue guessing. If incorrect, the spymaster must give a new clue with new number of words to guess
+4. The spymaster comes up with a one word clue that links to a pre-determined number of words on the board and lets the guesser know the clue and the number 
+5. The guesser guesses by clicking on the board and if correct can continue guessing until their correct guesses equals the pre-determined number. If incorrect, the spymaster must give a new clue with new number of words to guess
 6. Game ends if assassin card is guessed or if all the correct words are not guessed within 4 rounds
 
 
