@@ -130,26 +130,15 @@ function guesserRole() {
             cardEls[idx].textContent = wordsForGame[idx]
             cardEls[idx].style.backgroundColor = "white";
             cardEls[idx].style.color = "black";
-            } else if (currentGuesses.includes(idx)) {
-                if (bystanderWords.includes(wordsForGame[idx])) {
-                    cardEls[idx].textContent = wordsForGame[idx]
-                    cardEls[pickedCard].style.backgroundColor = "#F24236";
-                    cardEls[pickedCard].style.color = "white";
-                    console.log(idx);
-                    console.log(pickedCard);
-                } else if (winningWords.includes(wordsForGame[idx])) {
-                    cardEls[idx].textContent = wordsForGame[idx]
-                    cardEls[pickedCard].style.backgroundColor = "#71B340";
-                    cardEls[pickedCard].style.color = "white";
-                    console.log(idx);
-                    console.log(pickedCard);
-                }
-               
+            } else if (currentGuesses.includes(idx) && bystanderWords.includes(wordsForGame[idx])) {
+                    cardEls[idx].style.backgroundColor = "#F24236";
+                    cardEls[idx].style.color = "white";
+            } else if (currentGuesses.includes(idx) && winningWords.includes(wordsForGame[idx])) {
+                    cardEls[idx].style.backgroundColor = "#71B340";
+                    cardEls[idx].style.color = "white";
             }
-     }) 
-
-    
-}
+        })
+    }
 
 function cardAction() {
     cardEls.forEach((card, idx) => {
@@ -167,21 +156,10 @@ function pickResult(event) {
         cardEls[pickedCard].style.backgroundColor = "#F24236";
         cardEls[pickedCard].style.color = "white";
         currentGuesses.push(pickedCard)
-        // const cardColor = cardEls[pickedCard].style.backgroundColor
-        // const cardTextColor = cardEls[pickedCard].style.color
-        // currentGuesses.push({ Index: pickedCard, Revealed: 1, BGColorB: cardColor, CTextColorB: cardTextColor})
     } else if (winningWords.includes(wordsForGame[pickedCard])) {
         cardEls[pickedCard].style.backgroundColor = "#71B340";
         cardEls[pickedCard].style.color = "white";
         currentGuesses.push(pickedCard)
-        // const cardColor = cardEls[pickedCard].style.backgroundColor
-        // const cardTextColor = cardEls[pickedCard].style.color
-        // currentGuesses.push({Index: pickedCard, Revealed: 1, BGColorW: cardColor, CTextColorW: cardTextColor})
-        // currentGuesses.push(wordsForGame[pickedCard]) create new array that holds current value of picks and reference that when back in guesser role
-        //Add index property and reference that instead
 
     }
-    // console.log(Object.values(currentGuesses[0]));
-    console.log(pickedCard);
-    console.log(currentGuesses);
 }
