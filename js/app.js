@@ -9,6 +9,7 @@ let winningWords = []
 let bystanderWords = []
 let assassinWords = []
 let userRole = "SPYMASTER"
+let currentGuesses = []
 
 /*------------------------ Cached Element References ------------------------*/
 const cardEls = document.querySelectorAll(".card")
@@ -54,8 +55,6 @@ function start() {
     cardAction()
 }
 
-
-
 function pullGameWords() {
     while (wordsForGame.length < 16) {
         let randomIndex = Math.floor(Math.random() * wordPool.length)
@@ -64,8 +63,6 @@ function pullGameWords() {
         }
     }
 }
-
-console.log(wordsForGame);
 
 function assignGameWords() {
     while (winningWords.length + bystanderWords.length + assassinWords.length < 16) {
@@ -85,11 +82,11 @@ function displayGameWords() {
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = wordsForGame[idx]
         if (winningWords.includes(wordsForGame[idx])) {
-             cardEls[idx].style.backgroundColor = "#71B340";
+            cardEls[idx].style.backgroundColor = "#71B340";
             cardEls[idx].style.color = "white";
         } else if (bystanderWords.includes(wordsForGame[idx])) {
-             cardEls[idx].style.backgroundColor = "#F24236";
-             cardEls[idx].style.color = "white";
+            cardEls[idx].style.backgroundColor = "#F24236";
+            cardEls[idx].style.color = "white";
          } else if (assassinWords.includes(wordsForGame[idx])) {
             cardEls[idx].style.backgroundColor = "#2B2D42"
             cardEls[idx].style.color = "white";
@@ -113,17 +110,18 @@ function spymasterRole() {
         cardEls.forEach((card, idx) => {
             cardEls[idx].textContent = wordsForGame[idx]
             if (winningWords.includes(wordsForGame[idx])) {
-                 cardEls[idx].style.backgroundColor = "#71B340";
+                cardEls[idx].style.backgroundColor = "#71B340";
                 cardEls[idx].style.color = "white";
             } else if (bystanderWords.includes(wordsForGame[idx])) {
-                 cardEls[idx].style.backgroundColor = "#F24236";
-                 cardEls[idx].style.color = "white";
+                cardEls[idx].style.backgroundColor = "#F24236";
+                cardEls[idx].style.color = "white";
              } else if (assassinWords.includes(wordsForGame[idx])) {
                 cardEls[idx].style.backgroundColor = "#2B2D42"
                 cardEls[idx].style.color = "white";
             }
          })
     }
+
 function guesserRole() {
         cardEls.forEach((card, idx) => {
             cardEls[idx].textContent = wordsForGame[idx]
@@ -151,5 +149,7 @@ function pickResult(event) {
     } else if (winningWords.includes(wordsForGame[pickedCard])) {
         cardEls[pickedCard].style.backgroundColor = "#71B340";
         cardEls[pickedCard].style.color = "white";
+        // currentGuesses.push(wordsForGame[pickedCard]) create new array that holds current value of picks and reference that when back in guesser role
+
     }
 }
