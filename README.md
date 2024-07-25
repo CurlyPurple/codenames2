@@ -1,5 +1,5 @@
 # CODENAMES FOR TWO
-![Cards for Codenames in a 4 by 4 matrix ](../assets/images/cnphoto.png)
+![Cards for Codenames in a 4 by 4 matrix ](./assets/images/cnphoto.png)
 
 ## [PLAY](https://curlypurple.github.io/codenames2/) CODENAMES:
 
