@@ -37,6 +37,8 @@ function init() {
         playAgainBtn.removeEventListener('click', init)
         playAgainBtn.addEventListener('click', start)
     }
+    userRole = "SPYMASTER"
+    toggleBtn.textContent = "SPYMASTER"
 }
 
 function start() {
