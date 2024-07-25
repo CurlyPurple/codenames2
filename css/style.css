@@ -12,22 +12,11 @@ h1 {
     margin: auto;
 }
 
-/* .landing {
-    height: 26.4em;
-    width: 43em;
-    background-color: black;
-    position: absolute;
-}
-h2 {
-    color: white;
-    text-align: center;
-} */
-
 #togglebtn {
     border-radius: 10px;
     font-weight: bold;
     position: absolute;
-    top: 7%;
+  bottom: 85%;
     left: 37%;
     width: 300px;
     height: 30px;
@@ -36,10 +25,9 @@ h2 {
 #reset {
     border-radius: 10px;
     font-weight: bold;
-    position: absolute;
-    bottom: 10%;
-
-    left: 46%;
+    position: relative;
+    left: 45%;
+    margin-top: 15px;
     width: 100px;
     height: 30px;
 }
