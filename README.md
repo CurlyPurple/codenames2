@@ -1,5 +1,5 @@
 # CODENAMES FOR TWO
-![Cards for Codenames in a 4 by 4 matrix ](https://file%2B.vscode-resource.vscode-cdn.net/Users/Dayala2/code/ga/projects/codenames2/assets/cnphoto.png?version%3D1721890726292)
+![Cards for Codenames in a 4 by 4 matrix ](../assets/images/cnphoto.png)
 
 ## PLAY CODENAMES:
 
