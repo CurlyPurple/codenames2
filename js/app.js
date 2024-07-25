@@ -10,7 +10,6 @@ let bystanderWords = []
 let assassinWords = []
 let userRole = "SPYMASTER"
 let currentGuesses = []
-let isRevealed = 0
 
 /*------------------------ Cached Element References ------------------------*/
 const cardEls = document.querySelectorAll(".card")
@@ -31,6 +30,9 @@ init()
 function init() {
     currentGuesses = []
     wordsForGame = []
+    winningWords = []
+    bystanderWords = []
+    assassinWords = []
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = ''
         cardEls[idx].style.backgroundColor = "white";
@@ -78,7 +80,6 @@ function assignGameWords() {
         }
     }
 }
-    
 
 function displayGameWords() {
     cardEls.forEach((card, idx) => {
