@@ -36,8 +36,8 @@ h2 {
 #reset {
     border-radius: 10px;
     font-weight: bold;
-    position: relative;
-    top: 25%;
+    position: absolute;
+    top: 65%;
     left: 46%;
     width: 100px;
     height: 30px;

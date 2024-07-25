@@ -4,10 +4,6 @@ const wordPool = ["MYTH","PUZZLE","VILLAIN","MYSTERY","TREASURE","DRAGON","DREAM
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let round = 1
-let wordsLeft = 8
-let gameOver = false
-let endRound = false
 let wordsForGame = []
 let winningWords = []
 let bystanderWords = []
@@ -17,7 +13,7 @@ let userRole = "SPYMASTER"
 /*------------------------ Cached Element References ------------------------*/
 const cardEls = document.querySelectorAll(".card")
 const toggleBtn = document.getElementById('togglebtn')
-
+const playAgainBtn = document.getElementById('reset')
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -25,32 +21,51 @@ const toggleBtn = document.getElementById('togglebtn')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+playAgainBtn.addEventListener('click', start)
+toggleBtn.addEventListener('click', switchUsers)
 
 
 init()
 function init() {
+    wordsForGame = []
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = ''
+        cardEls[idx].style.backgroundColor = "white";
     })
-    round = 1
-    wordsLeft = 8
-    gameOver = false
-    endRound = false
+    if (playAgainBtn.textContent === "Play Again?") {
+        playAgainBtn.textContent = "START"
+        playAgainBtn.removeEventListener('click', init)
+        playAgainBtn.addEventListener('click', start)
+    }
+}
+
+function start() {
+    if (playAgainBtn.textContent === "START") {
+    playAgainBtn.innerHTML = "Play Again?"
+    playAgainBtn.removeEventListener('click', start)
+    playAgainBtn.addEventListener('click', init)
+    }
+    pullGameWords()
+    assignGameWords()
+    displayGameWords()
+    switchUsers()
+    cardAction()
 }
 
 
 
-// function pullGameWords() {
+function pullGameWords() {
     while (wordsForGame.length < 16) {
         let randomIndex = Math.floor(Math.random() * wordPool.length)
         if (!wordsForGame.includes(wordPool[randomIndex])) {
             wordsForGame.push(wordPool[randomIndex])
         }
     }
+}
 
 console.log(wordsForGame);
 
-// function assignGameWords() {
+function assignGameWords() {
     while (winningWords.length + bystanderWords.length + assassinWords.length < 16) {
         let randomIndex = Math.floor(Math.random() * wordsForGame.length)
         if (!winningWords.includes(wordsForGame[randomIndex]) && winningWords.length < 8) {
@@ -61,14 +76,12 @@ console.log(wordsForGame);
             assassinWords.push(wordsForGame[randomIndex])
         }
     }
-    console.log(winningWords);
-        console.log(bystanderWords);
-        console.log(assassinWords);
+}
+    
 
-// function displayGameWords() {
+function displayGameWords() {
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = wordsForGame[idx]
-            console.log(wordsForGame[idx]);
         if (winningWords.includes(wordsForGame[idx])) {
              cardEls[idx].style.backgroundColor = "#71B340";
             cardEls[idx].style.color = "white";
@@ -80,8 +93,8 @@ console.log(wordsForGame);
             cardEls[idx].style.color = "white";
         }
      })
+    }
      
-     toggleBtn.addEventListener('click', switchUsers)
 function switchUsers() {
     if (userRole === "SPYMASTER") {
         userRole = "GUESSER"
@@ -115,16 +128,17 @@ function guesserRole() {
             cardEls[idx].style.backgroundColor = "white";
             cardEls[idx].style.color = "black";
      })
-        pickCardResult()
     }
 
 
-function pickCardResult (event) {
-    pickedCard = parseInt(event.target.id)
-    pickResult()
+function cardAction() {
+    cardEls.forEach((card, idx) => {
+        cardEls[idx].addEventListener('click', pickResult)
+    })
 }
 
-function pickResult() {
+function pickResult(event) {
+    pickedCard = parseInt(event.target.id)
     if (assassinWords.includes(wordsForGame[pickedCard])) {
         cardEls[pickedCard].style.backgroundColor = "#2B2D42";
         cardEls[pickedCard].textContent = "Game Over!"
