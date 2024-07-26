@@ -4,7 +4,7 @@
 ## [PLAY](https://curlypurple.github.io/codenames2/) CODENAMES:
 
 * You will need at least 2 players to play
-* You are working as a team to guess all the correct words
+* You are working as a team to guess all the correct words (Green Words)
 
 1. One will be assigned the role of spymaster and the other will be the guesser
 2. The roles are at the top and you alternate by clicking the role title
