@@ -1,5 +1,5 @@
 # CODENAMES FOR TWO
-![Cards for Codenames in a 4 by 4 matrix ](./assets/images/cnphoto.png)
+![Cards for Codenames in a 4 by 4 matrix ](./assets/images/Codenames.png)
 
 ## [PLAY](https://curlypurple.github.io/codenames2/) CODENAMES:
 
@@ -23,6 +23,10 @@
 
 I used to play board games a lot when I was a kid. There was not one I probably had not played. Then as I got older, I stopped playing. During college, my love for board games got reignited, and it was due to playing this game with my friends. It is now my favorite board game and I wanted to share this game with as many people as possible.
 
+## Attributions
+
+* [Codenames Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfb-PA9O8hkVGF4u2l7fEMH1FncMiDWmDAJA&s)
+* [Blue TableTop Background Image](https://static.vecteezy.com/system/resources/previews/002/923/641/non_2x/blue-wooden-table-top-view-with-copy-space-free-photo.jpg)
 ## Technology Implemented:
 
 * **JavaScript**
