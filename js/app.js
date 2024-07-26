@@ -85,10 +85,10 @@ function displayGameWords() {
     cardEls.forEach((card, idx) => {
         cardEls[idx].textContent = wordsForGame[idx]
         if (winningWords.includes(wordsForGame[idx])) {
-            cardEls[idx].style.backgroundColor = "#71B340";
+            cardEls[idx].style.backgroundColor = "#3E6024";
             cardEls[idx].style.color = "white";
         } else if (bystanderWords.includes(wordsForGame[idx])) {
-            cardEls[idx].style.backgroundColor = "#F24236";
+            cardEls[idx].style.backgroundColor = "#B1160B";
             cardEls[idx].style.color = "white";
          } else if (assassinWords.includes(wordsForGame[idx])) {
             cardEls[idx].style.backgroundColor = "#2B2D42"
@@ -113,10 +113,10 @@ function spymasterRole() {
         cardEls.forEach((card, idx) => {
             cardEls[idx].textContent = wordsForGame[idx]
             if (winningWords.includes(wordsForGame[idx])) {
-                cardEls[idx].style.backgroundColor = "#71B340";
+                cardEls[idx].style.backgroundColor = "#3E6024";
                 cardEls[idx].style.color = "white";
             } else if (bystanderWords.includes(wordsForGame[idx])) {
-                cardEls[idx].style.backgroundColor = "#F24236";
+                cardEls[idx].style.backgroundColor = "#B1160B";
                 cardEls[idx].style.color = "white";
              } else if (assassinWords.includes(wordsForGame[idx])) {
                 cardEls[idx].style.backgroundColor = "#2B2D42"
@@ -132,10 +132,10 @@ function guesserRole() {
             cardEls[idx].style.backgroundColor = "white";
             cardEls[idx].style.color = "black";
             } else if (currentGuesses.includes(idx) && bystanderWords.includes(wordsForGame[idx])) {
-                    cardEls[idx].style.backgroundColor = "#F24236";
+                    cardEls[idx].style.backgroundColor = "#B1160B";
                     cardEls[idx].style.color = "white";
             } else if (currentGuesses.includes(idx) && winningWords.includes(wordsForGame[idx])) {
-                    cardEls[idx].style.backgroundColor = "#71B340";
+                    cardEls[idx].style.backgroundColor = "#3E6024";
                     cardEls[idx].style.color = "white";
             }
         })
@@ -153,12 +153,15 @@ function pickResult(event) {
         cardEls[pickedCard].style.backgroundColor = "#2B2D42";
         cardEls[pickedCard].textContent = "Game Over!"
         cardEls[pickedCard].style.color = "white";
+        cardEls.forEach((card, idx) => {
+            cardEls[idx].removeEventListener('click', pickResult)
+        })
     } else if (bystanderWords.includes(wordsForGame[pickedCard])) {
-        cardEls[pickedCard].style.backgroundColor = "#F24236";
+        cardEls[pickedCard].style.backgroundColor = "#B1160B";
         cardEls[pickedCard].style.color = "white";
         currentGuesses.push(pickedCard)
     } else if (winningWords.includes(wordsForGame[pickedCard])) {
-        cardEls[pickedCard].style.backgroundColor = "#71B340";
+        cardEls[pickedCard].style.backgroundColor = "#3E6024";
         cardEls[pickedCard].style.color = "white";
         currentGuesses.push(pickedCard)
 

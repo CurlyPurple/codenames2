@@ -1,13 +1,14 @@
 body {
 
-    background-color: #2274A5;
+    background-image: url('/assets/images/TableTop.jpg');
+    background-size: cover;
    
 }
 
 h1 {
     display: flex;
     justify-content: center;
-    background-color: #89023E;
+    background-color: #0D0106;
     color: white;
     margin: auto;
 }
