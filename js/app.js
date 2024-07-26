@@ -10,6 +10,8 @@ let bystanderWords = []
 let assassinWords = []
 let userRole = "SPYMASTER"
 let currentGuesses = []
+let winningGuesses = []
+let losingGuesses = []
 
 /*------------------------ Cached Element References ------------------------*/
 const cardEls = document.querySelectorAll(".card")
@@ -28,6 +30,8 @@ toggleBtn.addEventListener('click', switchUsers)
 
 init()
 function init() {
+    losingGuesses = []
+    winningGuesses = []
     currentGuesses = []
     wordsForGame = []
     winningWords = []
@@ -160,10 +164,32 @@ function pickResult(event) {
         cardEls[pickedCard].style.backgroundColor = "#B1160B";
         cardEls[pickedCard].style.color = "white";
         currentGuesses.push(pickedCard)
+        losingGuesses.push(pickedCard)
+        loser()
     } else if (winningWords.includes(wordsForGame[pickedCard])) {
         cardEls[pickedCard].style.backgroundColor = "#3E6024";
         cardEls[pickedCard].style.color = "white";
         currentGuesses.push(pickedCard)
+        winningGuesses.push(pickedCard)
+        winner()
 
     }
+}
+
+function loser() {
+    if (userRole === "GUESSER" && losingGuesses.length > 3) {
+        cardEls.forEach((card, idx) => {
+        cardEls[idx].removeEventListener('click', pickResult)
+        cardEls[idx].textContent = "Game Over!"
+        })
+    }
+}
+
+function winner() {
+    if (userRole === "GUESSER" && winningGuesses.length > 7) {
+    cardEls.forEach((card, idx) => {
+    cardEls[idx].removeEventListener('click', pickResult)
+    cardEls[idx].textContent = "Winner!"
+    })
+}
 }
