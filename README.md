@@ -38,5 +38,6 @@ I used to play board games a lot when I was a kid. There was not one I probably 
 
 * Code "Spymaster"
 * Allow User to pick number of words to guess
-* display previous clues
-* display round number and words left to guess
+* Display previous clues
+* Display round number and words left to guess
+* Add sound effects

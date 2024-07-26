@@ -18,15 +18,11 @@ const cardEls = document.querySelectorAll(".card")
 const toggleBtn = document.getElementById('togglebtn')
 const playAgainBtn = document.getElementById('reset')
 
-
-/*-------------------------------- Functions --------------------------------*/
-
-
-
 /*----------------------------- Event Listeners -----------------------------*/
 playAgainBtn.addEventListener('click', start)
 toggleBtn.addEventListener('click', switchUsers)
 
+/*-------------------------------- Functions --------------------------------*/
 
 init()
 function init() {
