@@ -141,6 +141,9 @@ function guesserRole() {
             } else if (currentGuesses.includes(idx) && winningWords.includes(wordsForGame[idx])) {
                     cardEls[idx].style.backgroundColor = "#3E6024";
                     cardEls[idx].style.color = "white";
+            } else if (currentGuesses.includes(idx) && assassinWords.includes(wordsForGame[idx])) {
+                    cardEls[idx].style.backgroundColor = "#2B2D42"
+                    cardEls[idx].style.color = "white"
             }
         })
     }
@@ -157,6 +160,7 @@ function pickResult(event) {
         cardEls[pickedCard].style.backgroundColor = "#2B2D42";
         cardEls[pickedCard].textContent = "Game Over!"
         cardEls[pickedCard].style.color = "white";
+        currentGuesses.push(pickedCard)
         cardEls.forEach((card, idx) => {
             cardEls[idx].removeEventListener('click', pickResult)
         })
